@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Extras
-*.egg_info
+*.egg_infoa
