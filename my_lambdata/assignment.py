@@ -1,6 +1,7 @@
 # my_lambdata/assignment.py
 import pandas as pd
 import numpy as np
+import person as Person
 
 # Convert State abbreviations -> Full name and vise versa. FL ->
 # Florica, etc.
@@ -58,13 +59,15 @@ if __name__ == "__main__":
 
     # df3 = pd.DataFrame({"a": [1,2,3,4]})
 
-    df_date = pd.DataFrame(
-        {"Date": ["5/10/2020", "5/9/2020", "5/8/2020", "5/7/2020", ]})
-    df_date = split_dates(df_date)
-    print(df_date)
+    # df_date = pd.DataFrame(
+    #     {"Date": ["5/10/2020", "5/9/2020", "5/8/2020", "5/7/2020", ]})
+    # df_date = split_dates(df_date)
+    # print(df_date)
 
     scores = {'First Score': [100, 90, np.nan, 95],
               'Second Score': [30, 45, 56, np.nan],
               'Third Score': [55, 40, 80, 98]}
     df4 = pd.DataFrame(scores)
     has_null(df4)
+
+    
