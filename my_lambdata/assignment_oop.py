@@ -20,7 +20,6 @@ class DataProcessor:
         # type(my_df['abbrev']) #> class 'pandas.core.series.Series <
 
         self.df['name'] = self.df['abbrev'].map(names_map)
-        return self.df
 
 
 def split_dates(df):

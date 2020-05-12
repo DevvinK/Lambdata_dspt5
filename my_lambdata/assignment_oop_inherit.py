@@ -1,27 +1,16 @@
-# my_lambdata/assignment_oop_inherit
-# .py
-import pandas as pd
+# my_lambdata/assignment_oop_inherit.py
+from pandas import DataFrame
 import numpy as np
 
-class DataProcessor:
-    def __init__(self, my_df):
-        """
-        Params: 
-            my_df (pandas.DataFrame) has a column called "abbrex" with state abbreviations
-        """
-        self.df = my_df
-
-
+class MyFrame(DataFrame):
+    
     def add_state_names(self):
         """
         Adds a column of state naems to accompany a corresponding column of state abbreviation.
         """
 
         names_map = {"CA": "Cali", "CO": "Colo", "CT": "Conn"}
-        # type(my_df['abbrev']) #> class 'pandas.core.series.Series <
-
-        self.df['name'] = self.df['abbrev'].map(names_map)
-        return self.df
+        self['name'] = self['abbrev'].map(names_map)
 
 
 def split_dates(df):
@@ -47,13 +36,9 @@ def has_null(df):
 
 
 if __name__ == "__main__":
-    df = pd.DataFrame({"abbrev": ["CA", "CO", "CT", "DC", "TX"]})
-
-    processor = DataProcessor(df)
-    print(processor.df.head()) # method
-
-    processor.add_state_names()
-    print(processor.df.head()) # method
-
-
+    my_frame = MyFrame({"abbrev": ["CA", "CO", "CT", "DC", "TX"]})
+    print(my_frame.columns)
+    print(my_frame.head())
     
+    my_frame.add_state_names()
+    print(my_frame.head())
