@@ -1,29 +1,26 @@
-# my_lambdata/assignment.py
+# my_lambdata/assignment_oop.py
 import pandas as pd
 import numpy as np
 
-# Convert State abbreviations -> Full name and vise versa. FL ->
-# Florica, etc.
-# Create an new coloumn that is a copy of the first, but mapped
+class DataProcessor:
+    def __init__(self, my_df):
+        """
+        Params: 
+            my_df (pandas.DataFrame) has a column called "abbrex" with state abbreviations
+        """
+        self.df = my_df
 
 
-def add_state_names(my_df):
-    """
-    Adds a column of state naems to accompany a corresponding column of state abbreviation.
+    def add_state_names(self):
+        """
+        Adds a column of state naems to accompany a corresponding column of state abbreviation.
+        """
 
-    Params:
-       my_df (pandas.DataFrame) has a column called "abbrev" with state abbreviations
+        names_map = {"CA": "Cali", "CO": "Colo", "CT": "Conn"}
+        # type(my_df['abbrev']) #> class 'pandas.core.series.Series <
 
-    Returns:
-       Copy of the original dataframe, with another column
-    """
-    new_df = my_df.copy()
-
-    names_map = {"CA": "Cali", "CO": "Colo", "CT": "Conn"}
-    # type(my_df['abbrev']) #> class 'pandas.core.series.Series <
-
-    new_df['name'] = my_df['abbrev'].map(names_map)
-    return new_df
+        self.df['name'] = self.df['abbrev'].map(names_map)
+        return self.df
 
 
 def split_dates(df):
@@ -49,22 +46,13 @@ def has_null(df):
 
 
 if __name__ == "__main__":
-    # df = pd.DataFrame({"abbrev": ["CA", "CO", "CT", "DC", "TX"]})
-    # print(df.columns) # property
-    # print(df.head()) # method
+    df = pd.DataFrame({"abbrev": ["CA", "CO", "CT", "DC", "TX"]})
 
-    # df2 = add_state_names(df)
-    # print(df2.head())
+    processor = DataProcessor(df)
+    print(processor.df.head()) # method
 
-    # df3 = pd.DataFrame({"a": [1,2,3,4]})
+    processor.add_state_names()
+    print(processor.df.head()) # method
 
-    df_date = pd.DataFrame(
-        {"Date": ["5/10/2020", "5/9/2020", "5/8/2020", "5/7/2020", ]})
-    df_date = split_dates(df_date)
-    print(df_date)
 
-    scores = {'First Score': [100, 90, np.nan, 95],
-              'Second Score': [30, 45, 56, np.nan],
-              'Third Score': [55, 40, 80, 98]}
-    df4 = pd.DataFrame(scores)
-    has_null(df4)
+    
