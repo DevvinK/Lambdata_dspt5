@@ -1,7 +1,9 @@
 # lambdata_dspt5
 
 ## Installation
- TODO
+'''sh
+pip install
+'''
 
 ## Usage
 
