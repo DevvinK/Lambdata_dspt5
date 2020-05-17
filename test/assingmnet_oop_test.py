@@ -18,7 +18,7 @@ class TestDAtaProcessord(unittest.TestCase):
       processor.add_state_names()
 
       self.assertEqual(list(processor.df.columns),['abbrev', 'name'])
-      self.assertEqual(processor.df.iloc[0]["abbrex"], "CA")
+      self.assertEqual(processor.df.iloc[0]["abbrev"], "CA")
       self.assertEqual(processor.df.iloc[0]["name"], "Cali")
 
    #Afer we invoke the fucntion:
