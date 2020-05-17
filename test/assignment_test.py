@@ -12,9 +12,12 @@ class TestAssignment(unittest.TestCase):
       df = DataFrame({"abbrev": ["CA", "CO", "CT", "DC", "TX"]})
       self.assertEqual(list(df.columns),['abbrev'])
      
+     # TODO: assert the first row's values are equal to...
      
       result = add_state_names(df)
       self.assertEqual(list(result.columns),['abbrev', 'name'])
+      self.assertEqual(result.iloc[0]["abbrex"], "CA")
+      self.assertEqual(result.iloc[0]["name"], "Cali")
 
    #Afer we invoke the fucntion:
       #expect a second column with the same number of rows
