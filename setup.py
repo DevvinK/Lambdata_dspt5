@@ -17,5 +17,5 @@ setup(
     # license="MIT",
     url="https://github.com/YOUR_USERNAME/YOUR_REPO_NAME",
     # keywords="",
-    packages=["my_lambdata"] #find_packages()  # ["my_lambdata"]
+    packages=find_packages()  # ["my_lambdata"]
 )
